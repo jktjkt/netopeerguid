@@ -481,14 +481,6 @@ node_metadata_basic(struct lys_node *node, json_object *parent)
     json_object_object_add(parent, "mandatory", obj);
 
     /* NACM extensions */
-    if (node->nacm) {
-        if (node->nacm & LYS_NACM_DENYW) {
-            obj = json_object_new_string("default-deny-write");
-        } else {
-            obj = json_object_new_string("default-deny-all");
-        }
-        json_object_object_add(parent, "ext", obj);
-    }
 }
 
 static void
